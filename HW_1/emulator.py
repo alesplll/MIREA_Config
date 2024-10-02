@@ -100,19 +100,26 @@ class ShellEmulator:
         src_path = os.path.join(self.current_dir, src).lstrip("/")
         dest_path = os.path.join(self.current_dir, dest).lstrip("/")
 
-        # If source file exists
-        if src_path in self.virtual_fs:
-            # If dest — directory
-            if dest_path in self.virtual_fs and dest_path.endswith("/"):
-                dest_path = os.path.join(dest_path, os.path.basename(src_path))
+        def exists_in_fs(path):
+            return path in self.virtual_fs or any(f.startswith(path + '/') for f in self.virtual_fs)
 
-            # Move file
-            self.virtual_fs.remove(src_path)
-            self.virtual_fs.append(dest_path)
+        if not exists_in_fs(src_path):
+            self.output.insert(
+                tk.END, f"Нет такого файла или директории: {src}\n")
+            return
 
-            self.output.insert(tk.END, f"Moved {src} to {dest}\n")
-        else:
-            self.output.insert(tk.END, f"No such file: {src}\n")
+        if dest_path in self.virtual_fs and dest_path.endswith("/"):
+            dest_path = os.path.join(dest_path, os.path.basename(src_path))
+
+        parent_dir = os.path.dirname(dest_path)
+        if parent_dir and not exists_in_fs(parent_dir):
+            self.output.insert(
+                tk.END, f"Родительская директория не существует: {parent_dir}\n")
+            return
+
+        self.virtual_fs = [dest_path + item[len(src_path):] if item == src_path or item.startswith(
+            src_path + '/') else item for item in self.virtual_fs if item != dest_path]
+        self.output.insert(tk.END, f"Перемещено {src} в {dest}\n")
 
 
 if __name__ == "__main__":
