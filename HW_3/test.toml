@@ -1,0 +1,3 @@
+user = "admin"
+password = "password"
+connections = [10, 15, 20]

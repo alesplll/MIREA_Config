@@ -1,0 +1,15 @@
+LOAD_MEM 0   ; Загрузка значения из памяти по адресу 0
+NEG 0        ; Применение унарного минуса
+STORE_MEM 100 ; Сохранение результата по адресу 100
+LOAD_MEM 1
+NEG 1
+STORE_MEM 101
+LOAD_MEM 2
+NEG 2
+STORE_MEM 102
+LOAD_MEM 3
+NEG 3
+STORE_MEM 103
+LOAD_MEM 4
+NEG 4
+STORE_MEM 104

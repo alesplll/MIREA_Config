@@ -1,0 +1,62 @@
+[
+    {
+        "instruction": "LOAD_MEM",
+        "operand": 0
+    },
+    {
+        "instruction": "NEG",
+        "operand": 0
+    },
+    {
+        "instruction": "STORE_MEM",
+        "operand": 100
+    },
+    {
+        "instruction": "LOAD_MEM",
+        "operand": 1
+    },
+    {
+        "instruction": "NEG",
+        "operand": 1
+    },
+    {
+        "instruction": "STORE_MEM",
+        "operand": 101
+    },
+    {
+        "instruction": "LOAD_MEM",
+        "operand": 2
+    },
+    {
+        "instruction": "NEG",
+        "operand": 2
+    },
+    {
+        "instruction": "STORE_MEM",
+        "operand": 102
+    },
+    {
+        "instruction": "LOAD_MEM",
+        "operand": 3
+    },
+    {
+        "instruction": "NEG",
+        "operand": 3
+    },
+    {
+        "instruction": "STORE_MEM",
+        "operand": 103
+    },
+    {
+        "instruction": "LOAD_MEM",
+        "operand": 4
+    },
+    {
+        "instruction": "NEG",
+        "operand": 4
+    },
+    {
+        "instruction": "STORE_MEM",
+        "operand": 104
+    }
+]
